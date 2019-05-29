@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Users Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{users.name.first.last}} {{users.name.last}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-card-subtitle>Users :</ion-card-subtitle>
+      <ul>
+        <li *ngFor="let user of users">{{users.name.first.last}} {{users.name.last}}</li>
+      </ul>
+      <ion-buttons slot="primary">
+        <ion-button routerLink="/edit/{{user.id.value}}">
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-button>
+        <ion-button (click)="delete(user.id)">
+          <ion-icon slot="icon-only" name="remove-circle"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+
+<!--"name": {-->
+<!--"title": "monsieur",-->
+<!--"first": "favreau",-->
+<!--"last": "jerome"-->
+<!--"email": "carol.joly@example.com",-->
+<!--"age": 10-->
+<!--"medium": "https://randomuser.me/api/portraits/med/women/49.jpg",-->
+
