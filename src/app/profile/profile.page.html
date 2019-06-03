@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Profile</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list *ngFor="let user of users">
+        <ion-item (click)="getUsersById(user.id)">
+            {{user.gender}}
+        </ion-item>
+    </ion-list>
+    <ion-card *ngIf="userById">
+        <ion-card-header>{{userById.name.title}} {{userById.name.first}} {{userById.name.last}}</ion-card-header>
+        <ion-card-content>
+            {{userById.id}}
+        <ion-button (click)="deleteUser(userById.id)">
+            Supprimer l'utilisateur
+        </ion-button>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
+
+

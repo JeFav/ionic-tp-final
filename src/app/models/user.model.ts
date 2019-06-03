@@ -43,11 +43,6 @@ export interface Registered {
     age: number;
 }
 
-export interface Id {
-    name: string;
-    value: string;
-}
-
 export interface Picture {
     large: string;
     medium: string;
@@ -55,6 +50,7 @@ export interface Picture {
 }
 
 export interface User {
+    id: number;
     gender: string;
     name: Name;
     location: Location;
@@ -64,7 +60,6 @@ export interface User {
     registered: Registered;
     phone: string;
     cell: string;
-    id: Id;
     picture: Picture;
     nat: string;
 }

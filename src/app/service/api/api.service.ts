@@ -10,10 +10,10 @@ import {User} from '../../models/user.model';
 export class ApiService {
 
     constructor(private http: HttpClient) {
-/*        this.httpOptions = {
-            headers: new HttpHeaders({'Content-Type': 'application/json'}),
-            observe: 'response' as 'body'
-        };*/
+        /*        this.httpOptions = {
+                    headers: new HttpHeaders({'Content-Type': 'application/json'}),
+                    observe: 'response' as 'body'
+                };*/
     }
 
     httpOptions;
@@ -23,7 +23,7 @@ export class ApiService {
         /*const res = parameters.res;
         const body = res;
         return body || {};*/
-        console.log()
+        console.log();
         return parameters as Array<User>;
     }
 
@@ -50,34 +50,35 @@ export class ApiService {
             catchError(ApiService.handleError));
     }
 
-    /*getUserById(id: string): Observable<any> {
-        const url = `${this.apiUrl}/${id}`;
-        return this.http.get(url, this.httpOptions).pipe(
-            map(res => ApiService.extractData({res: res})),
-            catchError(ApiService.handleError));
+    getUserById(id: number): Observable<any> {
+        const url = `${this.apiUrl}users/${id}`;
+        return this.http.get(url, this.httpOptions)
+            .pipe(
+                map(res => ApiService.extractData({res: res})),
+                catchError(ApiService.handleError));
     }
 
     postUser(data): Observable<any> {
-        const url = `${this.apiUrl}/add_with_students`;
+        const url = `${this.apiUrl}users/`;
         return this.http.post(url, data, this.httpOptions)
             .pipe(
                 catchError(ApiService.handleError)
             );
     }
 
-    updateUser(id: string, data): Observable<any> {
-        const url = `${this.apiUrl}/${id}`;
+    updateUser(id: number, data): Observable<any> {
+        const url = `${this.apiUrl}users/${id}`;
         return this.http.put(url, data, this.httpOptions)
             .pipe(
                 catchError(ApiService.handleError)
             );
     }
 
-    deleteUser(id: string): Observable<{}> {
-        const url = `${this.apiUrl}/${id}`;
+    deleteUser(id: number): Observable<{}> {
+        const url = `${this.apiUrl}users/${id}`;
         return this.http.delete(url, this.httpOptions)
             .pipe(
                 catchError(ApiService.handleError)
             );
-    }*/
+    }
 }

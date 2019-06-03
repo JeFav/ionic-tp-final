@@ -27,14 +27,14 @@ export class EditPage implements OnInit {
         });
     }
 
-    async getUsers(id) {
+    getUsers(id) {
         // const loading = await this.loadingController.create({
         //     content: "Loading"
         // });
         // await loading.present();
-        await this.api.getUserById(id).subscribe(res => {
+        this.api.getUserById(id).subscribe(res => {
             this.userForm.controls['user_name'].setValue(res.user_name);
-            let controlArray = <FormArray>this.userForm.controls['users'];
+            const controlArray = <FormArray>this.userForm.controls['users'];
             res.users.forEach(std => {
                 controlArray.push(this.formBuilder.group({
                     user_name: ''
@@ -66,10 +66,10 @@ export class EditPage implements OnInit {
         control.removeAt(index);
     }
 
-    async updateUser() {
-        await this.api.updateUser(this.route.snapshot.paramMap.get('id'), this.userForm.value)
+    updateUser() {
+        this.api.updateUser(this.route.snapshot.paramMap.get('id'), this.userForm.value)
             .subscribe(res => {
-                let id = res['id'];
+                const id = res['id'];
                 this.router.navigate(['/detail', JSON.stringify(id)]);
             }, (err) => {
                 console.log(err);

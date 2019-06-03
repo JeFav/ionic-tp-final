@@ -15,13 +15,13 @@ import { HomePage } from './home.page';
       {
         path: '',
         component: HomePage,
-        children:[
-          {
-            path: '',
-            component: HomePage,
-
-          }
-        ]
+        // children: [
+        //   {
+        //     path: '',
+        //     component: HomePage,
+        //
+        //   }
+        // ]
       }
     ])
   ],

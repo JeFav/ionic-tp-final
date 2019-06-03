@@ -1,5 +1,7 @@
 {
   "name": "tp-final",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

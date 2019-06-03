@@ -1,6 +1,7 @@
 {
   "users": [
     {
+      "id": 1,
       "gender": "male",
       "name": {
         "title": "monsieur",
@@ -41,10 +42,6 @@
       },
       "phone": "(462)-833-9930",
       "cell": "(404)-215-3367",
-      "id": {
-        "name": "AVS",
-        "value": "756.7622.7921.48"
-      },
       "picture": {
         "large": "https://randomuser.me/api/portraits/women/49.jpg",
         "medium": "https://randomuser.me/api/portraits/med/women/49.jpg",
@@ -53,6 +50,7 @@
       "nat": "CH"
     },
     {
+      "id": 2,
       "gender": "female",
       "name": {
         "title": "madame",
@@ -93,10 +91,6 @@
       },
       "phone": "(462)-833-9930",
       "cell": "(404)-215-3367",
-      "id": {
-        "name": "AVS",
-        "value": "756.7622.7921.49"
-      },
       "picture": {
         "large": "https://randomuser.me/api/portraits/women/49.jpg",
         "medium": "https://randomuser.me/api/portraits/med/women/49.jpg",
@@ -106,5 +100,3 @@
     }
   ]
 }
-
-

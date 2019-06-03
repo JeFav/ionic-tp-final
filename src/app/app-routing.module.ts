@@ -22,7 +22,9 @@ const routes: Routes = [
     {path: 'login', loadChildren: './login/login.module#LoginPageModule'},
     {path: 'detail', loadChildren: './detail/detail.module#DetailPageModule'},
     {path: 'edit', loadChildren: './edit/edit.module#EditPageModule'},
-    {path: 'edit/:id', loadChildren: './edit/edit.module#EditPageModule'}
+    {path: 'edit/:id', loadChildren: './edit/edit.module#EditPageModule'},
+  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
+  { path: 'register', loadChildren: './register/register.module#RegisterPageModule' }
 ];
 
 @NgModule({

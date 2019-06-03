@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable, throwError} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {User} from '../../models/user.model';
 
 
 @Injectable({
@@ -34,9 +35,12 @@ export class DiscogsApiService {
         return throwError('Something bad happened; please try again later.');
     }
 
-    private extractData(res: Response) {
-        const body = res;
-        return body || {};
+    private extractData(parameters: any) {
+        /*const body = res;
+        return body || {};*/
+        console.log(parameters);
+        return parameters;
+
     }
 
     search(params: string): Observable<any> {
@@ -45,7 +49,7 @@ export class DiscogsApiService {
             catchError(this.handleError));
     }
 
-    searchByArtist(params: object): Observable<any> {
+    searchByArtist(params: any): Observable<any> {
         return this.http.get(this.discogsUrl + '/artists/' + params.artist_id, this.httpOptions).pipe(
             map(res => this.extractData(res)),
             catchError(this.handleError));
