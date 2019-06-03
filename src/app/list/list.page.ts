@@ -33,12 +33,12 @@ export class ListPage implements OnInit {
     }
   }
 
-    async getUsers() {
+    getUsers() {
         // const loading = await this.loadingController.create({
         //     content: 'Loading'
         // });
         // await loading.present();
-        await this.api.getUsers()
+        this.api.getUsers()
             .subscribe(res => {
                 console.log(res);
                 this.users = res;
@@ -53,12 +53,12 @@ export class ListPage implements OnInit {
       this.getUsers();
   }
 
-    async delete(id) {
+     delete(id) {
         // const loading = await this.loadingController.create({
         //     content: 'Deleting'
         // });
         // await loading.present();
-        await this.api.deleteUser(id)
+        /* this.api.deleteUser(id)
             .subscribe(res => {
                 // loading.dismiss();
                 // this.location.back();
@@ -66,7 +66,7 @@ export class ListPage implements OnInit {
             }, err => {
                 console.log(err);
                 // loading.dismiss();
-            });
+            });*/
     }
   // add back when alpha.4 is out
   // navigate(item) {

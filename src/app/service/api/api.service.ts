@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable, of, throwError} from 'rxjs';
 import {HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
 import {catchError, tap, map} from 'rxjs/operators';
+import {User} from '../../models/user.model';
 
 @Injectable({
     providedIn: 'root'
@@ -9,19 +10,21 @@ import {catchError, tap, map} from 'rxjs/operators';
 export class ApiService {
 
     constructor(private http: HttpClient) {
-        this.httpOptions = {
+/*        this.httpOptions = {
             headers: new HttpHeaders({'Content-Type': 'application/json'}),
             observe: 'response' as 'body'
-        };
+        };*/
     }
 
     httpOptions;
     apiUrl = 'http://localhost:3000/';
 
-    private static extractData(parameters: { res: Response }) {
-        const res = parameters.res;
+    private static extractData(parameters: any) {
+        /*const res = parameters.res;
         const body = res;
-        return body || {};
+        return body || {};*/
+        console.log()
+        return parameters as Array<User>;
     }
 
     private static handleError(error: HttpErrorResponse) {
@@ -39,15 +42,15 @@ export class ApiService {
         return throwError('Something bad happened; please try again later.');
     }
 
-    getUsers(): Observable<any> {
-        return this.http.get(this.apiUrl, this.httpOptions).pipe(
+    getUsers(): Observable<Array<User>> {
+        return this.http.get(this.apiUrl + 'users').pipe(
             map(res => {
-                return ApiService.extractData({res});
+                return ApiService.extractData(res);
             }),
             catchError(ApiService.handleError));
     }
 
-    getUserById(id: string): Observable<any> {
+    /*getUserById(id: string): Observable<any> {
         const url = `${this.apiUrl}/${id}`;
         return this.http.get(url, this.httpOptions).pipe(
             map(res => ApiService.extractData({res: res})),
@@ -76,5 +79,5 @@ export class ApiService {
             .pipe(
                 catchError(ApiService.handleError)
             );
-    }
+    }*/
 }

@@ -14,7 +14,14 @@ import { HomePage } from './home.page';
     RouterModule.forChild([
       {
         path: '',
-        component: HomePage
+        component: HomePage,
+        children:[
+          {
+            path: '',
+            component: HomePage,
+
+          }
+        ]
       }
     ])
   ],
